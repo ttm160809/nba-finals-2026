@@ -1,0 +1,295 @@
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --knicks-blue: #006BB6;
+  --knicks-orange: #F58426;
+  --spurs-black: #061922;
+  --spurs-silver: #C4CED4;
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface2: #1e2530;
+  --border: #30363d;
+  --text: #e6edf3;
+  --muted: #8b949e;
+  --gold: #f0c040;
+  --radius: 12px;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+a { color: var(--knicks-orange); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Header ── */
+header {
+  background: linear-gradient(135deg, var(--knicks-blue) 0%, #003f7a 50%, var(--spurs-black) 100%);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  border-bottom: 3px solid var(--knicks-orange);
+}
+.header-inner { max-width: 900px; margin: 0 auto; }
+.badge {
+  display: inline-block;
+  background: var(--knicks-orange);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 0.75rem;
+}
+header h1 {
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+header h1 .vs {
+  color: var(--knicks-orange);
+  font-size: 0.75em;
+  margin: 0 0.4em;
+}
+.subtitle { color: var(--spurs-silver); font-size: 0.9rem; margin-top: 0.4rem; }
+
+/* ── Main Layout ── */
+main { max-width: 960px; margin: 0 auto; padding: 2rem 1rem 4rem; display: flex; flex-direction: column; gap: 1.5rem; }
+
+/* ── Card ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+}
+.card h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--knicks-orange);
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.6rem;
+}
+
+/* ── Matchup Banner ── */
+.matchup-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+}
+.team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  flex: 1;
+}
+.team img { width: 80px; height: 80px; object-fit: contain; }
+.team-name { font-weight: 700; font-size: 1rem; text-align: center; }
+.seed { font-size: 0.75rem; color: var(--muted); }
+.series-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+.series-score .wins {
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1;
+}
+.series-score .dash { font-size: 2rem; color: var(--muted); line-height: 1; }
+.knicks-wins { color: var(--knicks-blue); }
+.spurs-wins { color: var(--spurs-silver); }
+.status { font-size: 0.75rem; color: var(--gold); font-weight: 600; letter-spacing: 0.05em; margin-top: 0.25rem; }
+
+/* ── Game Log Table ── */
+.game-log { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.game-log th {
+  background: var(--surface2);
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+.game-log td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); }
+.won-knicks td { background: rgba(0, 107, 182, 0.08); }
+.won-spurs td { background: rgba(196, 206, 212, 0.06); }
+.upcoming td { color: var(--muted); font-style: italic; }
+.winner { font-weight: 700; color: var(--gold); }
+.footnote { font-size: 0.75rem; color: var(--muted); margin-top: 0.5rem; }
+
+/* ── Leaders Grid ── */
+.leaders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.leader-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+}
+.stat-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+.player-name { font-weight: 700; font-size: 0.95rem; }
+.player-team { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.5rem; }
+.stat-value { font-size: 1.8rem; font-weight: 900; color: var(--gold); line-height: 1; }
+.stat-value span { font-size: 0.75rem; font-weight: 400; color: var(--muted); }
+
+/* ── Facts ── */
+.facts { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.facts li {
+  padding: 0.6rem 0.75rem 0.6rem 1rem;
+  border-left: 3px solid var(--knicks-orange);
+  background: var(--surface2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* ── Game Nav ── */
+.game-nav { }
+.game-nav h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--knicks-orange);
+  margin-bottom: 1rem;
+}
+.game-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+.game-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.game-card:hover { border-color: var(--knicks-blue); transform: translateY(-2px); text-decoration: none; }
+.game-card.spurs:hover { border-color: var(--spurs-silver); }
+.gc-game { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+.gc-date { font-size: 0.8rem; color: var(--muted); }
+.gc-score { font-size: 1.1rem; color: var(--text); margin-top: 0.4rem; }
+.gc-winner { font-size: 0.8rem; font-weight: 700; color: var(--knicks-blue); margin-top: 0.2rem; }
+.gc-winner.spurs-win { color: var(--spurs-silver); }
+
+/* ── Box Score Page ── */
+.boxscore-header {
+  background: linear-gradient(135deg, var(--knicks-blue) 0%, #003f7a 50%, var(--spurs-black) 100%);
+  padding: 2rem 1.5rem;
+  border-bottom: 3px solid var(--knicks-orange);
+}
+.boxscore-header.spurs-game {
+  background: linear-gradient(135deg, var(--spurs-black) 0%, #1a2535 50%, #2a3a4a 100%);
+  border-bottom-color: var(--spurs-silver);
+}
+.bh-inner { max-width: 960px; margin: 0 auto; }
+.back-link { font-size: 0.82rem; color: var(--spurs-silver); display: inline-block; margin-bottom: 0.75rem; }
+.back-link:hover { color: var(--knicks-orange); text-decoration: none; }
+.bh-meta { font-size: 0.8rem; color: var(--spurs-silver); margin-bottom: 0.4rem; }
+.bh-title { font-size: clamp(1.2rem, 3.5vw, 1.8rem); font-weight: 900; color: #fff; }
+
+.final-score-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0 0;
+  flex-wrap: wrap;
+}
+.fsb-team { display: flex; flex-direction: column; align-items: center; gap: 0.25rem; }
+.fsb-team img { width: 56px; height: 56px; object-fit: contain; }
+.fsb-name { font-size: 0.8rem; color: var(--spurs-silver); }
+.fsb-score { font-size: 2.8rem; font-weight: 900; color: #fff; line-height: 1; }
+.fsb-score.winner-score { color: var(--gold); }
+.fsb-sep { font-size: 1.5rem; color: var(--muted); }
+.fsb-winner-tag {
+  display: inline-block;
+  background: var(--gold);
+  color: #000;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-top: 0.15rem;
+}
+
+/* ── Quarter Scores ── */
+.quarter-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+.quarter-table th, .quarter-table td { padding: 0.5rem 0.75rem; text-align: center; border-bottom: 1px solid var(--border); }
+.quarter-table th { background: var(--surface2); color: var(--muted); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.07em; }
+.quarter-table td:first-child { text-align: left; font-weight: 600; }
+.quarter-table .total { font-weight: 700; color: var(--gold); }
+
+/* ── Box Score Table ── */
+.bs-section { margin-top: 1.5rem; }
+.bs-section h3 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.bs-section h3 img { width: 28px; height: 28px; object-fit: contain; }
+
+.bs-table-wrap { overflow-x: auto; }
+.bs-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; min-width: 650px; }
+.bs-table th {
+  background: var(--surface2);
+  color: var(--muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.6rem;
+  text-align: right;
+  white-space: nowrap;
+}
+.bs-table th:first-child { text-align: left; }
+.bs-table td { padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--border); text-align: right; }
+.bs-table td:first-child { text-align: left; font-weight: 600; white-space: nowrap; }
+.bs-table tr:hover td { background: rgba(255,255,255,0.03); }
+.bs-table .bench-row td { color: var(--muted); }
+.bs-table .totals-row td { background: var(--surface2); font-weight: 700; border-top: 2px solid var(--border); }
+.bs-table .totals-row td:first-child { color: var(--muted); font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; }
+.starter-sep td { border-bottom: 2px dashed var(--border); }
+.team-section-header td { background: rgba(0,107,182,0.15); font-weight: 700; font-size: 0.78rem; color: var(--knicks-orange); letter-spacing: 0.05em; }
+.team-section-header.spurs-header td { background: rgba(196,206,212,0.08); color: var(--spurs-silver); }
+
+/* ── Footer ── */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+footer a { color: var(--muted); }
+footer a:hover { color: var(--knicks-orange); }
