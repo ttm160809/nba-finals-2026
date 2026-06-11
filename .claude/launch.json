@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "nbasite",
+      "runtimeExecutable": "/c/Users/garychang/AppData/Local/Microsoft/WindowsApps/python3",
+      "runtimeArgs": ["-m", "http.server", "3000", "--directory", "C:/Users/garychang/Desktop/Work/Claude Cowork/NBASITE"],
+      "port": 3000
+    }
+  ]
+}
